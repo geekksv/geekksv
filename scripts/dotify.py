@@ -142,7 +142,12 @@ def main():
     markup = svg(small, args.cell, args.detail, args.colour, args.ink, args.gamma, args.flat,
                  args.animate, args.stagger)
 
-    out = pathlib.Path(args.out).with_suffix(".svg")
+    # Not with_suffix: it replaces everything after the LAST dot, so an output
+    # path like "portrait-0.55" silently becomes "portrait-0.svg" and two runs
+    # overwrite each other.
+    out = pathlib.Path(args.out)
+    if out.suffix.lower() != ".svg":
+        out = out.with_name(out.name + ".svg")
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(markup, encoding="utf-8")
 
