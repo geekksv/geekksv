@@ -52,7 +52,7 @@ def load(path, cols, equalize):
     return small
 
 
-def svg(small, cell, detail, colour, ink, gamma, flat):
+def svg(small, cell, detail, colour, ink, gamma, flat, animate, stagger):
     """One <circle> per sampled cell, radius driven by how dark the cell is."""
     cols, rows = small.size
     px = small.load()
@@ -62,7 +62,25 @@ def svg(small, cell, detail, colour, ink, gamma, flat):
         f'viewBox="0 0 {w} {h}" role="img" aria-label="dot matrix portrait">'
     ]
 
+    if animate:
+        # Rows fade in one after another, so the picture wipes in from the top.
+        #
+        # CSS inside an SVG still runs when the file is loaded through <img>, which is
+        # how a README references it. Scripts and external fetches do not; keyframes
+        # do. The delay sits on a <g> per row rather than on every circle — the same
+        # effect from one class instead of twenty thousand.
+        delays = "".join(f".r{y}{{animation-delay:{y * stagger:.3f}s}}" for y in range(rows))
+        out.append(
+            "<style>@keyframes dm{from{opacity:0}to{opacity:1}}"
+            ".rw{animation:dm .45s ease-out both}" + delays +
+            # Motion a reader cannot stop is a WCAG 2.2.2 failure. The honest fix for a
+            # decorative wipe is to show the finished picture immediately.
+            "@media(prefers-reduced-motion:reduce){.rw{animation:none}}</style>"
+        )
+
     for y in range(rows):
+        if animate:
+            out.append(f'<g class="rw r{y}">')
         for x in range(cols):
             r, g, b, a = px[x, y]
             if a < 128:
@@ -93,6 +111,9 @@ def svg(small, cell, detail, colour, ink, gamma, flat):
             # until it is multiplied by two coordinates and twenty thousand dots.
             out.append(f'<circle cx="{cx:g}" cy="{cy:g}" r="{round(radius, 1):g}" fill="{fill}"/>')
 
+        if animate:
+            out.append("</g>")
+
     out.append("</svg>")
     return "\n".join(out)
 
@@ -109,6 +130,8 @@ def main():
     p.add_argument("--ink", default="#e8ecf2", help="dot colour when not --color")
     p.add_argument("--equalize", action="store_true", help="stretch contrast before sampling")
     p.add_argument("--flat", action="store_true", help="even dots; colour carries the image (illustration)")
+    p.add_argument("--animate", action="store_true", help="fade the rows in, top to bottom")
+    p.add_argument("--stagger", type=float, default=0.012, help="seconds between row fades")
     args = p.parse_args()
 
     src = pathlib.Path(args.image)
@@ -116,7 +139,8 @@ def main():
         sys.exit(f"no such image: {src}")
 
     small = load(src, args.cols, args.equalize)
-    markup = svg(small, args.cell, args.detail, args.colour, args.ink, args.gamma, args.flat)
+    markup = svg(small, args.cell, args.detail, args.colour, args.ink, args.gamma, args.flat,
+                 args.animate, args.stagger)
 
     out = pathlib.Path(args.out).with_suffix(".svg")
     out.parent.mkdir(parents=True, exist_ok=True)

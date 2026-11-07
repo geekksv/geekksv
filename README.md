@@ -9,9 +9,10 @@
 
 <div align="center">
 
-<!-- PORTRAIT — scripts/dotify.py, transparent source so one file serves both themes:
-     python scripts/dotify.py assets/source.jpg -o assets/portrait \
-       --cols 104 --color --flat --detail 0.80 --equalize -->
+<!-- PORTRAIT — scripts/dotify.py. Transparent source, so one file serves both themes,
+     and --animate fades the rows in from the top:
+     python scripts/dotify.py assets/source.png -o assets/portrait \
+       --cols 150 --color --flat --detail 0.82 --animate -->
 <img src="assets/portrait.svg" width="330" alt="dot matrix portrait">
 
 <br>
