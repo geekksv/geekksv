@@ -25,8 +25,10 @@ def esc(t):
 
 def card(t):
     badges = DATA["badges"]
-    tile_w, tile_h, gap = 232, 96, 14
-    cols = 2
+    # One row of four. Two-by-two read as a grid of equal weight; in a row they
+    # read as a strip of credentials, which is nearer what they are.
+    tile_w, tile_h, gap = 206, 92, 12
+    cols = 4
     rows = (len(badges) + cols - 1) // cols
     w = tile_w * cols + gap * (cols - 1) + 44
     h = 74 + rows * (tile_h + gap) + 10

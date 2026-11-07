@@ -89,7 +89,9 @@ def svg(small, cell, detail, colour, ink, gamma, flat):
             # Hex, not rgb(): "#1a2b3c" is 7 characters where "rgb(26,43,60)" is up to
             # 17, and with ten thousand circles that is most of the file size.
             fill = f"#{r:02x}{g:02x}{b:02x}" if colour else ink
-            out.append(f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="{radius:.1f}" fill="{fill}"/>')
+            # Trim "12.0" to "12". Two characters per coordinate sounds like nothing
+            # until it is multiplied by two coordinates and twenty thousand dots.
+            out.append(f'<circle cx="{cx:g}" cy="{cy:g}" r="{round(radius, 1):g}" fill="{fill}"/>')
 
     out.append("</svg>")
     return "\n".join(out)

@@ -137,7 +137,7 @@ systems underneath it quiet.
 <picture>
   <source media="(prefers-color-scheme: dark)"  srcset="assets/achievements-dark.svg">
   <source media="(prefers-color-scheme: light)" srcset="assets/achievements-light.svg">
-  <img src="assets/achievements-dark.svg" width="420" alt="GitHub achievements">
+  <img src="assets/achievements-dark.svg" width="700" alt="GitHub achievements">
 </picture>
 
 </div>
@@ -206,7 +206,7 @@ systems underneath it quiet.
 
 <br>
 
-<sub><a href="https://geekksv.vercel.app/">geekksv.vercel.app</a> · <a href="https://geekksv.vercel.app/writing">field notes</a> · Patna, India</sub>
+<sub><a href="https://geekksv.vercel.app/">geekksv.vercel.app</a></sub>
 
 <br><br>
 
