@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="460" height="230" viewBox="0 0 460 230" font-family="JetBrains Mono, ui-monospace, monospace">
+<text x="0" y="20" fill="#14171d" font-size="13" dominant-baseline="middle">Python</text>
+<rect x="110" y="13" width="310" height="14" rx="7" fill="#e4e6ec"/>
+<rect x="110" y="13" width="263.5" height="14" rx="7" fill="#c15f3c"/>
+<text x="110" y="40" fill="#666f7d" font-size="10" dominant-baseline="middle">Data pipelines, automation, Raspberry Pi</text>
+<text x="0" y="62" fill="#14171d" font-size="13" dominant-baseline="middle">Bash</text>
+<rect x="110" y="55" width="310" height="14" rx="7" fill="#e4e6ec"/>
+<rect x="110" y="55" width="248.0" height="14" rx="7" fill="#c15f3c"/>
+<text x="110" y="82" fill="#666f7d" font-size="10" dominant-baseline="middle">Anything that must run on a box with nothing installed</text>
+<text x="0" y="104" fill="#14171d" font-size="13" dominant-baseline="middle">SQL</text>
+<rect x="110" y="97" width="310" height="14" rx="7" fill="#e4e6ec"/>
+<rect x="110" y="97" width="170.5" height="14" rx="7" fill="#c15f3c"/>
+<text x="110" y="124" fill="#666f7d" font-size="10" dominant-baseline="middle">PostgreSQL and MySQL</text>
+<text x="0" y="146" fill="#14171d" font-size="13" dominant-baseline="middle">Go</text>
+<rect x="110" y="139" width="310" height="14" rx="7" fill="#e4e6ec"/>
+<rect x="110" y="139" width="139.5" height="14" rx="7" fill="#c15f3c"/>
+<text x="110" y="166" fill="#666f7d" font-size="10" dominant-baseline="middle">Qode — an ISO/IEC 18004 encoder written from scratch</text>
+<text x="0" y="188" fill="#14171d" font-size="13" dominant-baseline="middle">JavaScript</text>
+<rect x="110" y="181" width="310" height="14" rx="7" fill="#e4e6ec"/>
+<rect x="110" y="181" width="108.5" height="14" rx="7" fill="#c15f3c"/>
+<text x="110" y="208" fill="#666f7d" font-size="10" dominant-baseline="middle">Present in the public repos; not a language he claims</text>
+</svg>

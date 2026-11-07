@@ -1,0 +1,15 @@
+{
+  "_comment": [
+    "Repos that get a card in the README, in display order.",
+    "`lang` overrides what the GitHub API reports. GitHub picks the language with the",
+    "most bytes, which is not always the language the project is about — Qode is a QR",
+    "encoder written from scratch in Go with a thin JavaScript wrapper, and the wrapper",
+    "wins on bytes. Use this only to correct that, never to claim something absent."
+  ],
+  "repos": [
+    { "name": "Qode", "lang": "Go" },
+    "artyom-robo",
+    "mirror-dashboard",
+    "MeetOn"
+  ]
+}
