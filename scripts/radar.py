@@ -82,24 +82,62 @@ def radar(theme, t):
 
 
 def languages(theme, t):
+    """Concentric gauge: one arc per language, swept in proportion to the score.
+
+    Replaced a row of bars. Bars invite you to read the gaps between them, and the
+    honest story here is not a ranking — it is that two languages carry nearly all
+    the work and the rest are occasional. Nested arcs say that at a glance.
+
+    Each ring is its own radius so a short arc on an outer ring still reads; stacking
+    them on one radius would hide everything after the first.
+    """
     langs = DATA["languages"]
-    w, row = 460, 42
-    h = row * len(langs) + 20
+    w, h = 520, 420
+    cx, cy = 168, 196
+    outer, step = 112, 19
+    track = t["line"]
+
+    palette = ["#3572A5", "#89e051", "#00ADD8", "#dea584", "#f1e05a"]
+
+    def arc(r, frac):
+        """Path for a clockwise arc from 12 o'clock covering `frac` of the circle."""
+        frac = max(0.0, min(0.999, frac))
+        a0 = -math.pi / 2
+        a1 = a0 + 2 * math.pi * frac
+        x0, y0 = cx + r * math.cos(a0), cy + r * math.sin(a0)
+        x1, y1 = cx + r * math.cos(a1), cy + r * math.sin(a1)
+        large = 1 if frac > 0.5 else 0
+        return f"M {x0:.1f} {y0:.1f} A {r} {r} 0 {large} 1 {x1:.1f} {y1:.1f}"
 
     out = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" '
            f'viewBox="0 0 {w} {h}" font-family="JetBrains Mono, ui-monospace, monospace">']
 
     for i, l in enumerate(langs):
-        y = 20 + i * row
-        bar_w = (w - 150) * l["score"] / 100
-        out.append(f'<text x="0" y="{y}" fill="{t["ink"]}" font-size="13" dominant-baseline="middle">{esc(l["name"])}</text>')
-        out.append(f'<rect x="110" y="{y - 7}" width="{w - 150}" height="14" rx="7" fill="{t["line"]}"/>')
-        out.append(f'<rect x="110" y="{y - 7}" width="{bar_w:.1f}" height="14" rx="7" fill="{t["accent"]}"/>')
-        out.append(f'<text x="110" y="{y + 20}" fill="{t["muted"]}" font-size="10" '
-                   f'dominant-baseline="middle">{esc(l["note"])}</text>')
+        r = outer - i * step
+        colour = palette[i % len(palette)]
+        # Full-circle track first, so an arc is always read against its own limit.
+        out.append(f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="{track}" stroke-width="11"/>')
+        out.append(f'<path d="{arc(r, l["score"] / 100)}" fill="none" stroke="{colour}" '
+                   f'stroke-width="11" stroke-linecap="round"/>')
+
+    lead = max(langs, key=lambda l: l["score"])
+    out.append(f'<text x="{cx}" y="{cy - 6}" fill="{t["ink"]}" font-size="26" font-weight="600" '
+               f'text-anchor="middle">{lead["score"]}%</text>')
+    out.append(f'<text x="{cx}" y="{cy + 16}" fill="{t["muted"]}" font-size="12" '
+               f'text-anchor="middle">{esc(lead["name"])}</text>')
+
+    # Legend, right of the dial: swatch, name, score.
+    lx, ly = 322, 108
+    for i, l in enumerate(langs):
+        y = ly + i * 38
+        out.append(f'<circle cx="{lx}" cy="{y - 4}" r="5" fill="{palette[i % len(palette)]}"/>')
+        out.append(f'<text x="{lx + 16}" y="{y}" fill="{t["ink"]}" font-size="13">{esc(l["name"])}</text>')
+        out.append(f'<text x="{w - 20}" y="{y}" fill="{t["ink"]}" font-size="13" '
+                   f'text-anchor="end">{l["score"]}%</text>')
+        out.append(f'<text x="{lx + 16}" y="{y + 15}" fill="{t["muted"]}" font-size="10">{esc(l["note"])}</text>')
 
     out.append("</svg>")
-    return "\n".join(out)
+    return chr(10).join(out)
 
 
 def main():

@@ -1,30 +1,70 @@
 {
   "_comment": [
-    "Self-rated, and deliberately hand-written rather than computed from repo byte counts.",
-    "A byte-count radar would put JavaScript at the top of this profile, because the public",
-    "repos are side projects. The work that pays — the SBC layer, the Linux estate — is not",
-    "open source and contributes zero bytes here. The chart would be accurate about GitHub",
-    "and wrong about him.",
+    "Self-rated, hand-written rather than computed from repo byte counts.",
+    "A byte-count chart puts JavaScript on top, because the public repos are side projects",
+    "and the work that pays is not open source. Accurate about GitHub, wrong about him.",
     "",
-    "Axes mirror the categories on geekksv.vercel.app/expertise so the two never disagree.",
-    "Scores are out of 10 and are a judgement, not a measurement. Edit them when they stop",
-    "being true; the workflow redraws the chart on push."
+    "Axis order is the order they are read, starting at twelve o'clock: DevOps and AI first,",
+    "then the Linux and telephony work that backs them up. Scores are a judgement, not a",
+    "measurement. Keep language notes under ~28 characters or the gauge legend clips them."
   ],
-
   "radar": [
-    { "axis": "Linux & systems",   "score": 9, "why": "Day-to-day owner of 10-25 Debian/Ubuntu servers in production" },
-    { "axis": "SIP & telephony",   "score": 9, "why": "Runs the session border controller layer on OpenSIPS, ~1,000 concurrent calls" },
-    { "axis": "Automation",        "score": 8, "why": "Python and Bash, scheduled through systemd timers and cron" },
-    { "axis": "DevOps & delivery", "score": 7, "why": "Docker and Compose, Git and GitHub Actions; K8s and Terraform still ahead" },
-    { "axis": "Monitoring",        "score": 7, "why": "Zabbix, Prometheus and Grafana across the estate" },
-    { "axis": "Security",          "score": 6, "why": "Server hardening; taught a three-day ethical hacking workshop; BS in Cybersecurity" }
+    {
+      "axis": "DevOps & delivery",
+      "score": 7,
+      "why": "Docker and Compose, Git and GitHub Actions, CI/CD; K8s and Terraform still ahead"
+    },
+    {
+      "axis": "AI & automation",
+      "score": 7,
+      "why": "Open models run locally, computer vision, Python and Bash automation"
+    },
+    {
+      "axis": "Linux & systems",
+      "score": 9,
+      "why": "Day-to-day owner of 10-25 Debian/Ubuntu servers in production"
+    },
+    {
+      "axis": "Monitoring",
+      "score": 7,
+      "why": "Zabbix, Prometheus and Grafana across the estate"
+    },
+    {
+      "axis": "SIP & telephony",
+      "score": 9,
+      "why": "Runs the SBC layer on OpenSIPS, ~1,000 concurrent calls"
+    },
+    {
+      "axis": "Security",
+      "score": 6,
+      "why": "Server hardening; taught a three-day ethical hacking workshop"
+    }
   ],
-
   "languages": [
-    { "name": "Python",     "score": 85, "note": "Data pipelines, automation, Raspberry Pi" },
-    { "name": "Bash",       "score": 80, "note": "Anything that must run on a box with nothing installed" },
-    { "name": "SQL",        "score": 55, "note": "PostgreSQL and MySQL" },
-    { "name": "Go",         "score": 45, "note": "Qode — an ISO/IEC 18004 encoder written from scratch" },
-    { "name": "JavaScript", "score": 35, "note": "Present in the public repos; not a language he claims" }
+    {
+      "name": "Python",
+      "score": 85,
+      "note": "pipelines, automation, Pi"
+    },
+    {
+      "name": "Bash",
+      "score": 80,
+      "note": "boxes with nothing on them"
+    },
+    {
+      "name": "SQL",
+      "score": 55,
+      "note": "PostgreSQL and MySQL"
+    },
+    {
+      "name": "Go",
+      "score": 45,
+      "note": "Qode — QR encoder"
+    },
+    {
+      "name": "JavaScript",
+      "score": 35,
+      "note": "side projects"
+    }
   ]
 }

@@ -60,26 +60,6 @@ def wrap(text, width):
     return lines
 
 
-def stat_card(t, user, repos):
-    stars = sum(r["stargazers_count"] for r in repos)
-    w, h = 480, 180
-    rows = [
-        ("public repos", str(user["public_repos"])),
-        ("stars earned", str(stars)),
-        ("followers", str(user["followers"])),
-    ]
-    out = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" viewBox="0 0 {w} {h}" '
-           f'font-family="JetBrains Mono, ui-monospace, monospace">',
-           f'<rect x="1" y="1" width="{w-2}" height="{h-2}" rx="14" fill="{t["panel"]}" stroke="{t["line"]}" stroke-width="2"/>',
-           f'<text x="26" y="40" fill="{t["accent"]}" font-size="13" letter-spacing="1.5">THE NUMBERS</text>']
-    for i, (label, value) in enumerate(rows):
-        y = 78 + i * 34
-        out.append(f'<text x="26" y="{y}" fill="{t["muted"]}" font-size="13">{esc(label)}</text>')
-        out.append(f'<text x="{w-26}" y="{y}" fill="{t["ink"]}" font-size="17" font-weight="600" text-anchor="end">{value}</text>')
-    out.append("</svg>")
-    return "\n".join(out)
-
-
 def repo_card(t, repo):
     w, h = 420, 150
     desc = repo.get("description") or "No description"
@@ -124,7 +104,6 @@ def main():
     by_name = {r["name"]: r for r in repos}
 
     for theme, t in THEMES.items():
-        (assets / f"card-stats-{theme}.svg").write_text(stat_card(t, user, repos), encoding="utf-8")
         for name in wanted:
             repo = by_name.get(name)
             if not repo:
@@ -135,7 +114,7 @@ def main():
                 shown["language"] = overrides[name]
             (assets / f"card-{name}-{theme}.svg").write_text(repo_card(t, shown), encoding="utf-8")
 
-    print(f"drew stat card + {len(wanted)} project cards x {len(THEMES)} themes")
+    print(f"drew {len(wanted)} project cards x {len(THEMES)} themes")
 
 
 if __name__ == "__main__":

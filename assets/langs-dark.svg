@@ -1,22 +1,34 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="460" height="230" viewBox="0 0 460 230" font-family="JetBrains Mono, ui-monospace, monospace">
-<text x="0" y="20" fill="#e8ecf2" font-size="13" dominant-baseline="middle">Python</text>
-<rect x="110" y="13" width="310" height="14" rx="7" fill="#1c212b"/>
-<rect x="110" y="13" width="263.5" height="14" rx="7" fill="#e57255"/>
-<text x="110" y="40" fill="#7d8798" font-size="10" dominant-baseline="middle">Data pipelines, automation, Raspberry Pi</text>
-<text x="0" y="62" fill="#e8ecf2" font-size="13" dominant-baseline="middle">Bash</text>
-<rect x="110" y="55" width="310" height="14" rx="7" fill="#1c212b"/>
-<rect x="110" y="55" width="248.0" height="14" rx="7" fill="#e57255"/>
-<text x="110" y="82" fill="#7d8798" font-size="10" dominant-baseline="middle">Anything that must run on a box with nothing installed</text>
-<text x="0" y="104" fill="#e8ecf2" font-size="13" dominant-baseline="middle">SQL</text>
-<rect x="110" y="97" width="310" height="14" rx="7" fill="#1c212b"/>
-<rect x="110" y="97" width="170.5" height="14" rx="7" fill="#e57255"/>
-<text x="110" y="124" fill="#7d8798" font-size="10" dominant-baseline="middle">PostgreSQL and MySQL</text>
-<text x="0" y="146" fill="#e8ecf2" font-size="13" dominant-baseline="middle">Go</text>
-<rect x="110" y="139" width="310" height="14" rx="7" fill="#1c212b"/>
-<rect x="110" y="139" width="139.5" height="14" rx="7" fill="#e57255"/>
-<text x="110" y="166" fill="#7d8798" font-size="10" dominant-baseline="middle">Qode — an ISO/IEC 18004 encoder written from scratch</text>
-<text x="0" y="188" fill="#e8ecf2" font-size="13" dominant-baseline="middle">JavaScript</text>
-<rect x="110" y="181" width="310" height="14" rx="7" fill="#1c212b"/>
-<rect x="110" y="181" width="108.5" height="14" rx="7" fill="#e57255"/>
-<text x="110" y="208" fill="#7d8798" font-size="10" dominant-baseline="middle">Present in the public repos; not a language he claims</text>
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="420" viewBox="0 0 520 420" font-family="JetBrains Mono, ui-monospace, monospace">
+<circle cx="168" cy="196" r="112" fill="none" stroke="#1c212b" stroke-width="11"/>
+<path d="M 168.0 84.0 A 112 112 0 1 1 77.4 130.2" fill="none" stroke="#3572A5" stroke-width="11" stroke-linecap="round"/>
+<circle cx="168" cy="196" r="93" fill="none" stroke="#1c212b" stroke-width="11"/>
+<path d="M 168.0 103.0 A 93 93 0 1 1 79.6 167.3" fill="none" stroke="#89e051" stroke-width="11" stroke-linecap="round"/>
+<circle cx="168" cy="196" r="74" fill="none" stroke="#1c212b" stroke-width="11"/>
+<path d="M 168.0 122.0 A 74 74 0 1 1 145.1 266.4" fill="none" stroke="#00ADD8" stroke-width="11" stroke-linecap="round"/>
+<circle cx="168" cy="196" r="55" fill="none" stroke="#1c212b" stroke-width="11"/>
+<path d="M 168.0 141.0 A 55 55 0 0 1 185.0 248.3" fill="none" stroke="#dea584" stroke-width="11" stroke-linecap="round"/>
+<circle cx="168" cy="196" r="36" fill="none" stroke="#1c212b" stroke-width="11"/>
+<path d="M 168.0 160.0 A 36 36 0 0 1 197.1 217.2" fill="none" stroke="#f1e05a" stroke-width="11" stroke-linecap="round"/>
+<text x="168" y="190" fill="#e8ecf2" font-size="26" font-weight="600" text-anchor="middle">85%</text>
+<text x="168" y="212" fill="#7d8798" font-size="12" text-anchor="middle">Python</text>
+<circle cx="322" cy="104" r="5" fill="#3572A5"/>
+<text x="338" y="108" fill="#e8ecf2" font-size="13">Python</text>
+<text x="500" y="108" fill="#e8ecf2" font-size="13" text-anchor="end">85%</text>
+<text x="338" y="123" fill="#7d8798" font-size="10">pipelines, automation, Pi</text>
+<circle cx="322" cy="142" r="5" fill="#89e051"/>
+<text x="338" y="146" fill="#e8ecf2" font-size="13">Bash</text>
+<text x="500" y="146" fill="#e8ecf2" font-size="13" text-anchor="end">80%</text>
+<text x="338" y="161" fill="#7d8798" font-size="10">boxes with nothing on them</text>
+<circle cx="322" cy="180" r="5" fill="#00ADD8"/>
+<text x="338" y="184" fill="#e8ecf2" font-size="13">SQL</text>
+<text x="500" y="184" fill="#e8ecf2" font-size="13" text-anchor="end">55%</text>
+<text x="338" y="199" fill="#7d8798" font-size="10">PostgreSQL and MySQL</text>
+<circle cx="322" cy="218" r="5" fill="#dea584"/>
+<text x="338" y="222" fill="#e8ecf2" font-size="13">Go</text>
+<text x="500" y="222" fill="#e8ecf2" font-size="13" text-anchor="end">45%</text>
+<text x="338" y="237" fill="#7d8798" font-size="10">Qode — QR encoder</text>
+<circle cx="322" cy="256" r="5" fill="#f1e05a"/>
+<text x="338" y="260" fill="#e8ecf2" font-size="13">JavaScript</text>
+<text x="500" y="260" fill="#e8ecf2" font-size="13" text-anchor="end">35%</text>
+<text x="338" y="275" fill="#7d8798" font-size="10">side projects</text>
 </svg>
