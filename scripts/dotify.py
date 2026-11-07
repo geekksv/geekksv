@@ -86,8 +86,10 @@ def svg(small, cell, detail, colour, ink, gamma, flat):
                 continue  # below this it is a speck that only adds file size
 
             cx, cy = x * cell + cell / 2, y * cell + cell / 2
-            fill = f"rgb({r},{g},{b})" if colour else ink
-            out.append(f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="{radius:.2f}" fill="{fill}"/>')
+            # Hex, not rgb(): "#1a2b3c" is 7 characters where "rgb(26,43,60)" is up to
+            # 17, and with ten thousand circles that is most of the file size.
+            fill = f"#{r:02x}{g:02x}{b:02x}" if colour else ink
+            out.append(f'<circle cx="{cx:.1f}" cy="{cy:.1f}" r="{radius:.1f}" fill="{fill}"/>')
 
     out.append("</svg>")
     return "\n".join(out)
