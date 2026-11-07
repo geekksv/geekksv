@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="420" height="150" viewBox="0 0 420 150" font-family="JetBrains Mono, ui-monospace, monospace">
 <rect x="1" y="1" width="418" height="148" rx="14" fill="#ffffff" stroke="#e4e6ec" stroke-width="2"/>
-<text x="22" y="38" fill="#c15f3c" font-size="16" font-weight="600">mirror-dashboard</text>
+<text x="22" y="38" fill="#1a7f37" font-size="16" font-weight="600">mirror-dashboard</text>
 <text x="22" y="66" fill="#666f7d" font-size="12">A wall-mounted operations dashboard on</text>
 <text x="22" y="86" fill="#666f7d" font-size="12">MagicMirror² — support inbox, server fleet,</text>
 <circle cx="28" cy="120" r="5" fill="#f1e05a"/>

@@ -19,8 +19,8 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 USER = os.environ.get("PROFILE_USER", "geekksv")
 
 THEMES = {
-    "dark":  {"ink": "#e8ecf2", "muted": "#7d8798", "line": "#1c212b", "panel": "#0d0f14", "accent": "#e57255"},
-    "light": {"ink": "#14171d", "muted": "#666f7d", "line": "#e4e6ec", "panel": "#ffffff", "accent": "#c15f3c"},
+    "dark":  {"ink": "#e8ecf2", "muted": "#7d8798", "line": "#1c212b", "panel": "#0d0f14", "accent": "#39d353"},
+    "light": {"ink": "#14171d", "muted": "#666f7d", "line": "#e4e6ec", "panel": "#ffffff", "accent": "#1a7f37"},
 }
 
 LANG_COLOUR = {

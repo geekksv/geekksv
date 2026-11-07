@@ -28,8 +28,8 @@ def esc(text):
 
 
 THEMES = {
-    "dark":  {"ink": "#e8ecf2", "muted": "#7d8798", "line": "#1c212b", "accent": "#e57255", "bg": "none"},
-    "light": {"ink": "#14171d", "muted": "#666f7d", "line": "#e4e6ec", "accent": "#c15f3c", "bg": "none"},
+    "dark":  {"ink": "#e8ecf2", "muted": "#7d8798", "line": "#1c212b", "accent": "#39d353", "bg": "none"},
+    "light": {"ink": "#14171d", "muted": "#666f7d", "line": "#e4e6ec", "accent": "#1a7f37", "bg": "none"},
 }
 
 
@@ -82,59 +82,83 @@ def radar(theme, t):
 
 
 def languages(theme, t):
-    """Concentric gauge: one arc per language, swept in proportion to the score.
+    """The language card, built like the dashboard card it is modelled on.
 
-    Replaced a row of bars. Bars invite you to read the gaps between them, and the
-    honest story here is not a ranking — it is that two languages carry nearly all
-    the work and the rest are occasional. Nested arcs say that at a glance.
+    Left: concentric arcs, one language per ring, each on its own radius so a short
+    arc still reads — stacked on a single radius, everything after the first is
+    hidden. Labels sit upper-left with a colour dot each. The centre reads a count,
+    not a percentage: the percentages are in the table and repeating the largest one
+    in the middle says nothing the eye has not already taken from the arcs.
 
-    Each ring is its own radius so a short arc on an outer ring still reads; stacking
-    them on one radius would hide everything after the first.
+    Right: the same rows as a table, because an arc is good for proportion and bad
+    for a value you want to read exactly.
+
+    Per-language colours are GitHub's own rather than the accent. They carry meaning
+    the accent cannot, and a chart in one colour is a chart you have to decode.
     """
     langs = DATA["languages"]
-    w, h = 520, 420
-    cx, cy = 168, 196
-    outer, step = 112, 19
-    track = t["line"]
+    w, h = 580, 420
+    out = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" '
+           f'viewBox="0 0 {w} {h}" font-family="JetBrains Mono, ui-monospace, monospace">']
 
     palette = ["#3572A5", "#89e051", "#00ADD8", "#dea584", "#f1e05a"]
 
+    # ---- header -------------------------------------------------------------
+    out.append(f'<text x="22" y="30" fill="{t["ink"]}" font-size="15" font-weight="600">Languages</text>')
+    out.append(f'<text x="22" y="50" fill="{t["muted"]}" font-size="11">What I write by hand, not a byte count</text>')
+    out.append(f'<line x1="22" y1="66" x2="{w-22}" y2="66" stroke="{t["line"]}" stroke-width="1"/>')
+
+    # ---- dial ---------------------------------------------------------------
+    cx, cy, outer, step = 136, 246, 84, 15
+
     def arc(r, frac):
-        """Path for a clockwise arc from 12 o'clock covering `frac` of the circle."""
         frac = max(0.0, min(0.999, frac))
         a0 = -math.pi / 2
         a1 = a0 + 2 * math.pi * frac
         x0, y0 = cx + r * math.cos(a0), cy + r * math.sin(a0)
         x1, y1 = cx + r * math.cos(a1), cy + r * math.sin(a1)
-        large = 1 if frac > 0.5 else 0
-        return f"M {x0:.1f} {y0:.1f} A {r} {r} 0 {large} 1 {x1:.1f} {y1:.1f}"
-
-    out = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{w}" height="{h}" '
-           f'viewBox="0 0 {w} {h}" font-family="JetBrains Mono, ui-monospace, monospace">']
+        return f"M {x0:.1f} {y0:.1f} A {r} {r} 0 {1 if frac > 0.5 else 0} 1 {x1:.1f} {y1:.1f}"
 
     for i, l in enumerate(langs):
         r = outer - i * step
-        colour = palette[i % len(palette)]
-        # Full-circle track first, so an arc is always read against its own limit.
-        out.append(f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="{track}" stroke-width="11"/>')
-        out.append(f'<path d="{arc(r, l["score"] / 100)}" fill="none" stroke="{colour}" '
-                   f'stroke-width="11" stroke-linecap="round"/>')
+        out.append(f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="none" stroke="{t["line"]}" stroke-width="9"/>')
+        out.append(f'<path d="{arc(r, l["score"] / 100)}" fill="none" stroke="{palette[i % len(palette)]}" '
+                   f'stroke-width="9" stroke-linecap="round"/>')
 
-    lead = max(langs, key=lambda l: l["score"])
-    out.append(f'<text x="{cx}" y="{cy - 6}" fill="{t["ink"]}" font-size="26" font-weight="600" '
-               f'text-anchor="middle">{lead["score"]}%</text>')
-    out.append(f'<text x="{cx}" y="{cy + 16}" fill="{t["muted"]}" font-size="12" '
-               f'text-anchor="middle">{esc(lead["name"])}</text>')
+    out.append(f'<text x="{cx}" y="{cy - 4}" fill="{t["ink"]}" font-size="25" font-weight="600" '
+               f'text-anchor="middle">{len(langs)}</text>')
+    out.append(f'<text x="{cx}" y="{cy + 16}" fill="{t["muted"]}" font-size="11" '
+               f'text-anchor="middle">languages</text>')
 
-    # Legend, right of the dial: swatch, name, score.
-    lx, ly = 322, 108
+    # Ring key, upper-left of the dial, outermost ring first.
     for i, l in enumerate(langs):
-        y = ly + i * 38
-        out.append(f'<circle cx="{lx}" cy="{y - 4}" r="5" fill="{palette[i % len(palette)]}"/>')
-        out.append(f'<text x="{lx + 16}" y="{y}" fill="{t["ink"]}" font-size="13">{esc(l["name"])}</text>')
-        out.append(f'<text x="{w - 20}" y="{y}" fill="{t["ink"]}" font-size="13" '
+        y = 104 + i * 17
+        out.append(f'<text x="96" y="{y}" fill="{t["muted"]}" font-size="10" '
+                   f'text-anchor="end">{esc(l["name"])}</text>')
+        out.append(f'<circle cx="106" cy="{y - 3}" r="3.5" fill="{palette[i % len(palette)]}"/>')
+
+    # ---- table --------------------------------------------------------------
+    tx = 262
+    out.append(f'<text x="{tx}" y="96" fill="{t["muted"]}" font-size="9" letter-spacing="1">LANGUAGE</text>')
+    out.append(f'<text x="{w-22}" y="96" fill="{t["muted"]}" font-size="9" letter-spacing="1" '
+               f'text-anchor="end">SHARE</text>')
+
+    for i, l in enumerate(langs):
+        y = 128 + i * 46
+        out.append(f'<circle cx="{tx + 5}" cy="{y - 4}" r="4" fill="{palette[i % len(palette)]}"/>')
+        out.append(f'<text x="{tx + 18}" y="{y}" fill="{t["ink"]}" font-size="12">{esc(l["name"])}</text>')
+        out.append(f'<text x="{w-22}" y="{y}" fill="{t["ink"]}" font-size="12" '
                    f'text-anchor="end">{l["score"]}%</text>')
-        out.append(f'<text x="{lx + 16}" y="{y + 15}" fill="{t["muted"]}" font-size="10">{esc(l["note"])}</text>')
+        bar_w = w - 22 - (tx + 18)
+        out.append(f'<rect x="{tx + 18}" y="{y + 7}" width="{bar_w}" height="5" rx="2.5" fill="{t["line"]}"/>')
+        out.append(f'<rect x="{tx + 18}" y="{y + 7}" width="{bar_w * l["score"] / 100:.1f}" height="5" '
+                   f'rx="2.5" fill="{palette[i % len(palette)]}"/>')
+        out.append(f'<text x="{tx + 18}" y="{y + 26}" fill="{t["muted"]}" font-size="9.5">{esc(l["note"])}</text>')
+
+    # ---- footer -------------------------------------------------------------
+    out.append(f'<line x1="22" y1="{h-40}" x2="{w-22}" y2="{h-40}" stroke="{t["line"]}" stroke-width="1"/>')
+    out.append(f'<text x="22" y="{h-20}" fill="{t["muted"]}" font-size="9.5">'
+               f'Self-rated · the infrastructure work lives on servers, not in repos</text>')
 
     out.append("</svg>")
     return chr(10).join(out)

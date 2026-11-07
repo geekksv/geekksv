@@ -1,0 +1,16 @@
+{
+  "_comment": [
+    "Hand-maintained, and it has to be. GitHub publishes profile achievements nowhere a",
+    "script can read them — not the REST API, not GraphQL. They exist only in the HTML of",
+    "the profile page. So this list cannot refresh itself, and it goes stale silently the",
+    "day another badge is earned. That is the cost of showing them at all.",
+    "",
+    "Check against github.com/geekksv when you remember to."
+  ],
+  "badges": [
+    { "name": "Pull Shark",   "tier": "x2", "what": "Merged pull requests",                   "glyph": "<>" },
+    { "name": "Galaxy Brain", "tier": "",   "what": "Accepted answer in a Discussion",        "glyph": "{}" },
+    { "name": "Quickdraw",    "tier": "",   "what": "Closed an issue or PR within 5 minutes", "glyph": ">_" },
+    { "name": "YOLO",         "tier": "",   "what": "Merged without review",                  "glyph": "!!" }
+  ]
+}

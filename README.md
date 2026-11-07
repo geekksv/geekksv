@@ -19,7 +19,7 @@
 <!-- Width is sized to the longest line. At 620 the later lines were cut mid-word,
      and the component gives no warning — it just clips. -->
 <a href="https://geekksv.vercel.app/">
-  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=24&duration=2800&pause=1000&color=E57255&center=true&vCenter=true&width=780&height=46&lines=Keshav+Kumar;DevOps+%26+Infrastructure+Engineer;AI%2C+automation%2C+and+models+I+run+myself;Telephony+infrastructure+on+Linux" alt="DevOps and infrastructure engineer">
+  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=24&duration=2800&pause=1000&color=39D353&center=true&vCenter=true&width=780&height=46&lines=Keshav+Kumar;DevOps+%26+Infrastructure+Engineer;AI%2C+automation%2C+and+models+I+run+myself;Telephony+infrastructure+on+Linux" alt="DevOps and infrastructure engineer">
 </a>
 
 <br>
@@ -32,7 +32,7 @@
 
 <!-- The one third-party service on this page, and unavoidably so: counting views
      needs a server that sees the requests, which a static README cannot do. -->
-<img src="https://komarev.com/ghpvc/?username=geekksv&style=flat&color=e57255&label=profile+views" alt="profile views">
+<img src="https://komarev.com/ghpvc/?username=geekksv&style=flat&color=39d353&label=profile+views" alt="profile views">
 
 </div>
 
@@ -49,10 +49,9 @@ systems underneath it quiet.
 
 - Running **10–25 production Linux servers** and the SIP layer on **OpenSIPS**
 - **Docker, CI/CD, Zabbix and Grafana**; Python and Bash for the rest
-- **Open-source LLMs run locally**, not through a hosted API
-- Taught Linux and ethical hacking to **60+ students** as an invited subject expert
+- Shipping through **Git and GitHub Actions**, with monitoring that finds a fault before a customer does
+- Building with **open models I run myself** — vision, speech, and local LLMs on hardware I control
 - Learning **Kubernetes, Terraform and Ansible**
-- Reading for a **BS in AI & Cybersecurity** at IIT Patna
 
 > The infrastructure work is not open source. These repos are the part I can show —
 > the rest is at **[geekksv.vercel.app](https://geekksv.vercel.app/)**.
@@ -63,7 +62,7 @@ systems underneath it quiet.
 
 ## `~/` toolbox
 
-<img src="https://skillicons.dev/icons?i=linux,debian,ubuntu,bash,python,go,docker,nginx,prometheus,grafana,postgres,mysql,git,githubactions,raspberrypi,arduino,cpp,flask,opencv,cloudflare,vercel&perline=7" alt="tech stack">
+<img src="https://skillicons.dev/icons?i=linux,docker,python,bash,go,nginx,prometheus,grafana,postgres,mysql,git,githubactions,raspberrypi,cloudflare,vercel&perline=9" alt="tech stack">
 
 </div>
 
@@ -98,6 +97,16 @@ systems underneath it quiet.
 </table>
 
 <sub>Languages are what I write by hand, not a byte count of this account — the infrastructure work lives on servers, not in repos.</sub>
+
+<br><br>
+
+<!-- Drawn by scripts/achievements.py from assets/achievements.json. Hand-kept, because
+     GitHub publishes profile achievements in no API — only in the profile page HTML. -->
+<picture>
+  <source media="(prefers-color-scheme: dark)"  srcset="assets/achievements-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/achievements-light.svg">
+  <img src="assets/achievements-dark.svg" width="520" alt="GitHub achievements">
+</picture>
 
 </div>
 
@@ -170,8 +179,30 @@ systems underneath it quiet.
 </tr>
 </table>
 
+<sub>
+
+| project | live | stack |
+|---|---|---|
+| **[Qode](https://github.com/geekksv/Qode)** | [getqode.vercel.app](https://getqode.vercel.app) | `Go` `WebAssembly` |
+| **[artyom-robo](https://github.com/geekksv/artyom-robo)** | [demo](https://geekksv.github.io/artyom-robo/) | `Python` `Raspberry Pi` `Flask` |
+| **[mirror-dashboard](https://github.com/geekksv/mirror-dashboard)** | — | `JavaScript` `MagicMirror²` |
+| **[MeetOn](https://github.com/geekksv/MeetOn)** | — | `WebRTC` `Socket.IO` |
+
+</sub>
+
 <br>
 
 <sub><a href="https://geekksv.vercel.app/">geekksv.vercel.app</a> · <a href="https://geekksv.vercel.app/writing">field notes</a> · Patna, India</sub>
+
+<br><br>
+
+<!-- 01110100 01101000 01100001 01101110 01101011 01110011 -> "thanks".
+     Six bytes because the whole sentence is 180 columns of binary, which wraps to a
+     block and stops being a quiet touch. -->
+<sub><code>01110100 01101000 01100001 01101110 01101011 01110011</code></sub>
+
+<br>
+
+<sub><i>thanks for scrolling — now go build something</i></sub>
 
 </div>

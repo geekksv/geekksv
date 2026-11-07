@@ -11,8 +11,10 @@ on:
     branches: [main]
     paths:
       - "assets/skills.json"
+      - "assets/achievements.json"
       - "assets/projects.json"
       - "scripts/radar.py"
+      - "scripts/achievements.py"
       - "scripts/cards.py"
   workflow_dispatch:
 
@@ -30,7 +32,9 @@ jobs:
           python-version: "3.12"
 
       - name: Draw charts
-        run: python scripts/radar.py
+        run: |
+          python scripts/radar.py
+          python scripts/achievements.py
 
       - name: Draw cards
         env:

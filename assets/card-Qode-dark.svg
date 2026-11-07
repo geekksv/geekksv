@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="420" height="150" viewBox="0 0 420 150" font-family="JetBrains Mono, ui-monospace, monospace">
 <rect x="1" y="1" width="418" height="148" rx="14" fill="#0d0f14" stroke="#1c212b" stroke-width="2"/>
-<text x="22" y="38" fill="#e57255" font-size="16" font-weight="600">Qode</text>
+<text x="22" y="38" fill="#39d353" font-size="16" font-weight="600">Qode</text>
 <text x="22" y="66" fill="#7d8798" font-size="12">Free QR code generator that runs entirely in</text>
 <text x="22" y="86" fill="#7d8798" font-size="12">your browser. A from-scratch ISO/IEC 18004</text>
 <circle cx="28" cy="120" r="5" fill="#00ADD8"/>
