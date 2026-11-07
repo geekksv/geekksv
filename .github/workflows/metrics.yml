@@ -22,7 +22,10 @@ jobs:
         with:
           token: ${{ secrets.METRICS_TOKEN }}
           user: ${{ github.repository_owner }}
-          filename: metrics.isocalendar.svg
+          # Relative to the repo root, not to any default folder. A bare
+          # "metrics.isocalendar.svg" writes it beside the README while the README
+          # looks for it in assets/ — the run goes green and the image stays broken.
+          filename: assets/metrics.isocalendar.svg
           base: ""
           plugin_isocalendar: yes
           plugin_isocalendar_duration: full-year
