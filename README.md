@@ -2,9 +2,14 @@
   github.com/geekksv/geekksv — the repo name matches the username, which is what
   makes GitHub render this file at the top of the profile page.
 
-  The portrait, radar and gauge are SVGs committed to assets/, drawn by the scripts
+  The terminal, radar and gauge are SVGs committed to assets/, drawn by the scripts
   in scripts/ and refreshed by the workflows in .github/workflows/. Nothing here is
   fetched from a chart service at render time. See SETUP.md.
+
+  The portrait and the signature now live inside the terminal, embedded as data URIs
+  rather than referenced: an SVG that GitHub renders through <img> is isolated and
+  cannot fetch an external image, so an href to either would come out blank.
+  assets/portrait.svg is no longer used by this page; scripts/dotify.py still makes it.
 -->
 
 <div align="center">
@@ -19,24 +24,7 @@
   <img src="assets/terminal-dark.svg" width="100%" alt="ksv@macbook : ~ $ id -un — keshav kumar, linux / devops / telephony / automation">
 </picture>
 
-<br><br>
-
-<!-- PORTRAIT — scripts/dotify.py. Transparent source, so one file serves both themes,
-     and --animate fades the rows in from the top:
-     python scripts/dotify.py assets/source.png -o assets/portrait \
-       --cols 150 --color --flat --detail 0.82 --animate
-
-     SIGNATURE — scripts/signature.py, recoloured per theme. The portfolio's own file
-     is white ink, which is invisible against GitHub's light theme. -->
-<img src="assets/portrait.svg" width="150" align="middle" alt="dot matrix portrait">
-&nbsp;&nbsp;&nbsp;&nbsp;
-<picture>
-  <source media="(prefers-color-scheme: dark)"  srcset="assets/signature-dark.png">
-  <source media="(prefers-color-scheme: light)" srcset="assets/signature-light.png">
-  <img src="assets/signature-dark.png" width="185" align="middle" alt="Keshav">
-</picture>
-
-<br><br>
+<br>
 
 <!-- Kept on one line on purpose. Split across three, GitHub turns each newline into a
      <br> and the badges stack into a column instead of sitting in a row. -->
