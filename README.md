@@ -9,25 +9,38 @@
 
 <div align="center">
 
+<!-- TERMINAL — scripts/terminal.py. Replaces the typing-SVG banner that used to sit
+     here: that fetched from a third-party service on every page view and said the same
+     things this does. Two files paired with <picture>, matching the radar and language
+     charts further down. -->
+<picture>
+  <source media="(prefers-color-scheme: dark)"  srcset="assets/terminal-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="assets/terminal-light.svg">
+  <img src="assets/terminal-dark.svg" width="100%" alt="ksv@macbook : ~ $ id -un — keshav kumar, linux / devops / telephony / automation">
+</picture>
+
+<br><br>
+
 <!-- PORTRAIT — scripts/dotify.py. Transparent source, so one file serves both themes,
      and --animate fades the rows in from the top:
      python scripts/dotify.py assets/source.png -o assets/portrait \
-       --cols 150 --color --flat --detail 0.82 --animate -->
-<img src="assets/portrait.svg" width="330" alt="dot matrix portrait">
+       --cols 150 --color --flat --detail 0.82 --animate
 
-<br>
+     SIGNATURE — scripts/signature.py, recoloured per theme. The portfolio's own file
+     is white ink, which is invisible against GitHub's light theme. -->
+<img src="assets/portrait.svg" width="150" align="middle" alt="dot matrix portrait">
+&nbsp;&nbsp;&nbsp;&nbsp;
+<picture>
+  <source media="(prefers-color-scheme: dark)"  srcset="assets/signature-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="assets/signature-light.png">
+  <img src="assets/signature-dark.png" width="185" align="middle" alt="Keshav">
+</picture>
 
-<!-- Width is sized to the longest line. At 620 the later lines were cut mid-word,
-     and the component gives no warning — it just clips. -->
-<a href="https://geekksv.vercel.app/">
-  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=24&duration=2800&pause=1000&color=39D353&center=true&vCenter=true&width=780&height=46&lines=Keshav+Kumar;DevOps+%26+Infrastructure+Engineer;AI%2C+automation%2C+and+models+I+run+myself;Telephony+infrastructure+on+Linux" alt="DevOps and infrastructure engineer">
-</a>
+<br><br>
 
-<br>
-
-<a href="https://geekksv.vercel.app/"><img src="https://img.shields.io/badge/Portfolio-111111?style=for-the-badge&logo=vercel&logoColor=white" alt="Portfolio"></a>
-<a href="https://linkedin.com/in/geekksv"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"></a>
-<a href="mailto:write.ksv@gmail.com"><img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"></a>
+<!-- Kept on one line on purpose. Split across three, GitHub turns each newline into a
+     <br> and the badges stack into a column instead of sitting in a row. -->
+<a href="https://geekksv.pages.dev/"><img src="https://img.shields.io/badge/Portfolio-111111?style=for-the-badge&logo=safari&logoColor=white" alt="Portfolio"></a> <a href="https://linkedin.com/in/geekksv"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"></a> <a href="mailto:write.ksv@gmail.com"><img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"></a>
 
 <br>
 
@@ -55,7 +68,7 @@ systems underneath it quiet.
 - Learning **Kubernetes, Terraform and Ansible**
 
 > The infrastructure work is not open source. These repos are the part I can show —
-> the rest is at **[geekksv.vercel.app](https://geekksv.vercel.app/)**.
+> the rest is at **[geekksv.pages.dev](https://geekksv.pages.dev/)**.
 
 <br>
 
@@ -207,7 +220,7 @@ systems underneath it quiet.
 
 <br>
 
-<sub><a href="https://geekksv.vercel.app/">geekksv.vercel.app</a></sub>
+<sub><a href="https://geekksv.pages.dev/">geekksv.pages.dev</a></sub>
 
 <br><br>
 
