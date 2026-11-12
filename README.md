@@ -27,8 +27,16 @@
 <br>
 
 <!-- Kept on one line on purpose. Split across three, GitHub turns each newline into a
-     <br> and the badges stack into a column instead of sitting in a row. -->
-<a href="https://geekksv.pages.dev/"><img src="https://img.shields.io/badge/Portfolio-111111?style=for-the-badge&logo=safari&logoColor=white" alt="Portfolio"></a> <a href="https://linkedin.com/in/geekksv"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"></a> <a href="mailto:write.ksv@gmail.com"><img src="https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"></a>
+     <br> and the badges stack into a column instead of sitting in a row.
+
+     One flat colour across all three rather than each service's brand colour: the row
+     then reads as a set of links, and the only thing carrying colour is the logo.
+
+     logo=linkedin draws nothing: LinkedIn was pulled from Simple Icons, which is where
+     shields.io gets its logos, so the slug silently resolves to no icon at all and the
+     badge just comes out narrower. The mark is inlined as a data URI instead. Do not
+     "tidy" this back to logo=linkedin -- the icon disappears and nothing warns you. -->
+<a href="https://geekksv.pages.dev/"><img src="https://img.shields.io/badge/geekksv.pages.dev-111827?style=flat-square&logo=safari&logoColor=white" alt="Portfolio"></a> <a href="https://linkedin.com/in/geekksv"><img src="https://img.shields.io/badge/linkedin-111827?style=flat-square&logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iI2ZmZiI+PHBhdGggZD0iTTIwLjQ1IDIwLjQ1aC0zLjU2di01LjU3YzAtMS4zMy0uMDItMy4wNC0xLjg1LTMuMDQtMS44NSAwLTIuMTQgMS40NS0yLjE0IDIuOTR2NS42N0g5LjM1VjloMy40MXYxLjU2aC4wNWMuNDgtLjkgMS42NC0xLjg1IDMuMzctMS44NSAzLjYgMCA0LjI3IDIuMzcgNC4yNyA1LjQ2djYuMjh6TTUuMzQgNy40M2EyLjA2IDIuMDYgMCAxIDEgMC00LjEzIDIuMDYgMi4wNiAwIDAgMSAwIDQuMTN6bTEuNzggMTMuMDJIMy41NlY5aDMuNTZ2MTEuNDV6TTIyLjIyIDBIMS43N0MuNzkgMCAwIC43NyAwIDEuNzN2MjAuNTRDMCAyMy4yMy43OSAyNCAxLjc3IDI0aDIwLjQ1Yy45OCAwIDEuNzgtLjc3IDEuNzgtMS43M1YxLjczQzI0IC43NyAyMy4yIDAgMjIuMjIgMHoiLz48L3N2Zz4=" alt="LinkedIn"></a> <a href="mailto:write.ksv@gmail.com"><img src="https://img.shields.io/badge/email-111827?style=flat-square&logo=gmail&logoColor=white" alt="Email"></a>
 
 <br>
 
